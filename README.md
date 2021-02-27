@@ -10,19 +10,19 @@ The contributors to this project are:-
 
 ## Technologies used:-
 
-# Front-end:-
+### Front-end:-
 - HTML5
 - CSS3
 - Bootstrap 5
 - Javascript
 
-# Back-end:-
+### Back-end:-
 - Spring Boot (Java)
 - Spring MVC Framework
 - JSP
 - JSTL
 
-# Database:-
+### Database:-
 - MySQL
 
 
