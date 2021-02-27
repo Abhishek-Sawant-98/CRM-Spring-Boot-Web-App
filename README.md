@@ -21,6 +21,7 @@ The contributors to this project are:-
 - Spring MVC Framework
 - JSP
 - JSTL
+- Servlets
 
 ### Database:-
 - MySQL
