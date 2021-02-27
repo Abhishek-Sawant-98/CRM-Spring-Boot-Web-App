@@ -99,12 +99,14 @@ public class DashboardController {
 	// New Account
 	@RequestMapping(value = "/dashboard/new-account", method = { RequestMethod.GET, RequestMethod.POST })
 	private String addNewAccount(@Valid @ModelAttribute("account") Account account, BindingResult results,
-			HttpSession session, HttpServletRequest request) {
+			HttpSession session, HttpServletRequest request,
+			@Value("${error.alert.account.invalid}") String invalidAccountMsg,
+			@Value("${error.alert.account.alreadyExists}") String accountAlreadyExistsMsg) {
 
 		// Returns to dashboard page in case of validation errors
 		if (results.hasErrors()) {
 
-			session.setAttribute("errorMessage", "invalidAccountMsg");
+			session.setAttribute("errorMessage", invalidAccountMsg);
 
 			return "dashboardPage";
 		}
@@ -115,7 +117,7 @@ public class DashboardController {
 		if (!accountService.addAccount(account, (User) session.getAttribute("userObj"))) {
 			results.rejectValue("isAlreadyRegistered", "error.account.cantRegisterAgain");
 
-			session.setAttribute("errorMessage", "accountAlreadyExistsMsg");
+			session.setAttribute("errorMessage", accountAlreadyExistsMsg);
 
 			return "dashboardPage";
 		}
@@ -128,19 +130,20 @@ public class DashboardController {
 	// New Contact (custom-validation)
 	@RequestMapping(value = "/dashboard/new-contact", method = { RequestMethod.GET, RequestMethod.POST })
 	private String addNewContact(@Valid @ModelAttribute("contact") Contact contact, BindingResult results,
-			HttpSession session) {
+			HttpSession session, @Value("${error.alert.contact.invalid}") String invalidContactMsg,
+			@Value("${error.alert.contact.alreadyExists}") String contactAlreadyExistsMsg) {
 
 		// Custom validation of contact through 'ContactValidator.java'
 		contactService.validate(contact, results);
-
+		
 		if (results.hasErrors()) {
-			session.setAttribute("errorMessage", "${error.alert.contact.invalid}");
+			session.setAttribute("errorMessage", invalidContactMsg);
 			return "dashboardPage";
 		}
 
 		if (!contactService.addContact(contact, (User) session.getAttribute("userObj"))) {
 			results.rejectValue("isAlreadyRegistered", "error.contact.cantRegisterAgain");
-			session.setAttribute("errorMessage", "${error.alert.contact.alreadyExists}");
+			session.setAttribute("errorMessage", contactAlreadyExistsMsg);
 			return "dashboardPage";
 		}
 
@@ -149,16 +152,18 @@ public class DashboardController {
 
 	// New Lead
 	@RequestMapping(value = "/dashboard/new-lead", method = { RequestMethod.GET, RequestMethod.POST })
-	private String addNewLead(@Valid @ModelAttribute("lead") Lead lead, BindingResult results, HttpSession session) {
+	private String addNewLead(@Valid @ModelAttribute("lead") Lead lead, BindingResult results, HttpSession session,
+			@Value("${error.alert.lead.invalid}") String invalidLeadMsg,
+			@Value("${error.alert.lead.alreadyExists}") String leadAlreadyExistsMsg) {
 
 		if (results.hasErrors()) {
-			session.setAttribute("errorMessage", "${error.alert.lead.invalid}");
+			session.setAttribute("errorMessage", invalidLeadMsg);
 			return "dashboardPage";
 		}
 
 		if (!leadService.addLead(lead, (User) session.getAttribute("userObj"))) {
 			results.rejectValue("isAlreadyRegistered", "error.lead.cantRegisterAgain");
-			session.setAttribute("errorMessage", "${error.alert.lead.alreadyExists}");
+			session.setAttribute("errorMessage", leadAlreadyExistsMsg);
 			return "dashboardPage";
 		}
 
@@ -168,19 +173,21 @@ public class DashboardController {
 	// New Opportunity (custom-validation)
 	@RequestMapping(value = "/dashboard/new-opportunity", method = { RequestMethod.GET, RequestMethod.POST })
 	private String addNewOpportunity(@Valid @ModelAttribute("opportunity") Opportunity opportunity,
-			BindingResult results, HttpSession session) {
+			BindingResult results, HttpSession session,
+			@Value("${error.alert.opportunity.invalid}") String invalidOpportunityMsg,
+			@Value("${error.alert.opportunity.alreadyExists}") String opportunityAlreadyExistsMsg) {
 
 		// Custom validation of opportunity through 'OpportunityValidator.java'
 		opportunityService.validate(opportunity, results);
 
 		if (results.hasErrors()) {
-			session.setAttribute("errorMessage", "${error.alert.opportunity.invalid}");
+			session.setAttribute("errorMessage", invalidOpportunityMsg);
 			return "dashboardPage";
 		}
 
 		if (!opportunityService.addOpportunity(opportunity, (User) session.getAttribute("userObj"))) {
 			results.rejectValue("isAlreadyRegistered", "error.opportunity.cantRegisterAgain");
-			session.setAttribute("errorMessage", "${error.alert.opportunity.alreadyExists}");
+			session.setAttribute("errorMessage", opportunityAlreadyExistsMsg);
 			return "dashboardPage";
 		}
 
@@ -190,16 +197,17 @@ public class DashboardController {
 	// New Case
 	@RequestMapping(value = "/dashboard/new-case", method = { RequestMethod.GET, RequestMethod.POST })
 	private String addNewCase(@Valid @ModelAttribute("caseObj") Case caseObj, BindingResult results,
-			HttpSession session) {
+			HttpSession session, @Value("${error.alert.case.invalid}") String invalidCaseMsg,
+			@Value("${error.alert.case.alreadyExists}") String caseAlreadyExistsMsg) {
 
 		if (results.hasErrors()) {
-			session.setAttribute("errorMessage", "${error.alert.case.invalid}");
+			session.setAttribute("errorMessage", invalidCaseMsg);
 			return "dashboardPage";
 		}
 
 		if (!caseService.addCase(caseObj, (User) session.getAttribute("userObj"))) {
 			results.rejectValue("isAlreadyRegistered", "error.case.cantRegisterAgain");
-			session.setAttribute("errorMessage", "${error.alert.case.alreadyExists}");
+			session.setAttribute("errorMessage", caseAlreadyExistsMsg);
 			return "dashboardPage";
 		}
 
@@ -208,19 +216,21 @@ public class DashboardController {
 
 	// New Task (custom-validation)
 	@RequestMapping(value = "/dashboard/new-task", method = { RequestMethod.GET, RequestMethod.POST })
-	private String addNewTask(@Valid @ModelAttribute("task") Task task, BindingResult results, HttpSession session) {
+	private String addNewTask(@Valid @ModelAttribute("task") Task task, BindingResult results, HttpSession session,
+			@Value("${error.alert.task.invalid}") String invalidTaskMsg,
+			@Value("${error.alert.task.alreadyExists}") String taskAlreadyExistsMsg) {
 
 		// Custom validation of task through 'TaskValidator.java'
 		taskService.validate(task, results);
 
 		if (results.hasErrors()) {
-			session.setAttribute("errorMessage", "${error.alert.task.invalid}");
+			session.setAttribute("errorMessage", invalidTaskMsg);
 			return "dashboardPage";
 		}
 
 		if (!taskService.addTask(task, (User) session.getAttribute("userObj"))) {
 			results.rejectValue("isAlreadyRegistered", "error.task.cantRegisterAgain");
-			session.setAttribute("errorMessage", "${error.alert.task.alreadyExists}");
+			session.setAttribute("errorMessage", taskAlreadyExistsMsg);
 			return "dashboardPage";
 		}
 

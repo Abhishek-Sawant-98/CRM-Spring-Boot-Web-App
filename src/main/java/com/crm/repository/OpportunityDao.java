@@ -2,7 +2,6 @@ package com.crm.repository;
 
 import java.util.List;
 
-import com.crm.model.Lead;
 import com.crm.model.Opportunity;
 import com.crm.model.User;
 

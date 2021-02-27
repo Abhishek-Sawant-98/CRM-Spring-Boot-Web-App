@@ -2,7 +2,6 @@ package com.crm.repository;
 
 import java.util.List;
 
-import com.crm.model.Case;
 import com.crm.model.Contact;
 import com.crm.model.User;
 
