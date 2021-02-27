@@ -87,6 +87,7 @@ label {
 input, select, option {
 	font-size: medium;
 	background-color: #dddddd;
+	text-align-last: center;
 	color: darkslategrey;
 }
 

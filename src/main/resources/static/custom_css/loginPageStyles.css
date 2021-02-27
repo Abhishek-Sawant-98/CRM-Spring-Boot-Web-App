@@ -65,6 +65,7 @@ label {
 
 input {
 	font-size: medium;
+	text-align-last: center;
 	color: darkslategrey;
 	border-radius: 1px;
 	width: 100%;

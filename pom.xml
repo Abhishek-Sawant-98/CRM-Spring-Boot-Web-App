@@ -9,11 +9,11 @@
 		<version>2.1.8.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.cognizant.crm</groupId>
-	<artifactId>CustomerRelationshipManagement</artifactId>
+	<groupId>com.crm</groupId>
+	<artifactId>CRM_Web_App</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CustomerRelationshipManagement</name>
-	<description>Customer Relationship Management app using Spring Boot</description>
+	<name>CRM_Web_App</name>
+	<description>CRM Web App using Spring Boot</description>
 
 	<properties>
         <java.version>11</java.version>

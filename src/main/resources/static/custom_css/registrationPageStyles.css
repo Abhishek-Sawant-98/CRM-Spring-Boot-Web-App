@@ -71,6 +71,7 @@ label {
 input, select, option {
 	font-size: medium;
 	text-align: center;
+	text-align-last: center;
 	background-color: #dddddd;
 	color: darkslategrey;
 }
