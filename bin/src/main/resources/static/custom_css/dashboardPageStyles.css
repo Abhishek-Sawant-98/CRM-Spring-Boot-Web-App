@@ -1,0 +1,23 @@
+
+body {
+  background-image: url('https://s17026.pcdn.co/wp-content/uploads/sites/9/2019/06/AdobeStock_228728388-e1559665846519.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 100%;
+} 
+
+.font-white{
+	color: white;
+}
+
+.red-font{
+	color: red;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  text-align: center;
+  padding : 20px
+}

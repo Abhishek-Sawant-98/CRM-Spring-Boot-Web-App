@@ -1,0 +1,78 @@
+
+body {
+  background-image: url('https://cdn.hipwallpaper.com/i/52/49/29nhJr.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  background-position: center;
+  text-shadow: 0 3px 7px #999999;
+  background-size: 100% 100%;
+}
+
+header {
+	background-image: linear-gradient(135deg, rgba(25, 39, 232, 0.9), rgba(230, 39, 102, 0.9));
+	text-shadow: 0 5px 10px #000000;
+	box-shadow: 0 15px 30px #303030;
+	border-bottom-left-radius: 50px;
+	border-bottom-right-radius: 50px;
+	height: 90px;
+	font-family: cursive;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	display: grid;
+	place-items: center;
+}
+
+h5 {
+	font-family: fantasy;
+	text-align: center;
+}
+
+.red-font {
+	font-family: cursive;
+	color: red;
+}
+
+.card {
+	background-color: rgba(225, 233, 232, 0.9);
+	padding: 1.5rem;
+	border-radius: 40px;
+	box-shadow: 0px 20px 30px #303030;
+}
+
+.card-body button, .card-body a {
+	width: 40%;
+}
+
+.card-body a:hover {
+	box-shadow: 0 10px 20px -5px grey;
+	cursor: pointer;
+}
+
+form {
+	display: grid;
+	place-items: left;
+	background-image: linear-gradient(to right, rgba(105, 233, 207, 0.8), rgba(9, 249, 24 , 0.5));
+	font-size: medium;
+}
+
+form * {
+	width: 100%;
+	text-align: center;
+}
+
+label {
+	font-size: large;
+	color: darkslategrey;
+	font-weight: bold;
+}
+
+input, select, option {
+	font-size: medium;
+	text-align: center;
+	background-color: #dddddd;
+	color: darkslategrey;
+}
+
+

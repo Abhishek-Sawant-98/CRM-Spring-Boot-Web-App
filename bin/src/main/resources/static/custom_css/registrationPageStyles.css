@@ -1,0 +1,30 @@
+
+body {
+  background-image: url('https://storage.unitedwebnetwork.com/files/168/dc469c6228c749a05cca55c22135152e.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.font-white{
+	color: white;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 700;
+}
+
+.red-font{
+	color: red;
+}
+
+.bold-font{
+	font-weight: bold;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  text-align: center;
+  padding : 20px
+}

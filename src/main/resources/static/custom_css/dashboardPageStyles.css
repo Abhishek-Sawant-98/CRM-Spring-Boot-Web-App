@@ -1,0 +1,125 @@
+
+body {
+	background-image: linear-gradient(270deg, rgba(228, 101, 55, 0.7),	rgba(228, 172, 55, 0.9));
+	text-align: center;
+	text-shadow: 0 3px 7px #999999;
+	display: flex;
+	flex-direction: column;
+}
+
+.crm-background {
+	background-image: url('https://www.sew.ai/images/solutions/crm/crm-banner.svg');
+	background-repeat: no-repeat;
+	z-index: -1;
+	background-position: center;
+	background-size: 100% 100%;
+	width: 100%;
+	position: absolute;
+	top: 170px;
+	bottom: 20px;
+}
+
+.center {
+	text-align: center;
+}
+
+.red-font {
+	font-family: cursive;
+	color: red;
+}
+
+#address-label {
+	font-family: sans-serif;
+	color: #FB0134;
+	text-shadow: 0 5px 10px #ffffff;
+}
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+}
+
+h3 {
+	font-family: fantasy;
+	text-align: center;
+}
+
+header {
+	background-image: linear-gradient(135deg, rgba(25, 39, 232, 0.9), rgba(230, 39, 102, 0.9));
+	text-shadow: 0 5px 10px #000000;
+	box-shadow: 0 15px 30px -10px grey;
+	border-bottom-left-radius: 50px;
+	border-bottom-right-radius: 50px;
+	height: 90px;
+	font-family: cursive;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	display: grid;
+	place-items: center;
+}
+
+nav {
+	background-image: linear-gradient(135deg, rgba(231, 229, 226, 0.9), rgba(203, 200, 195, 0.9));
+	box-shadow: 0 15px 30px -10px grey;
+	border-radius: 40px;
+	padding: 1rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	font-size: x-large;
+}
+
+nav a {
+	display: inline;
+	color: black;
+	text-decoration: blink;
+	font-weight: bold;
+	padding: 1rem 1rem;
+	border-radius: 10px;
+}
+
+nav a:hover {
+	padding: 0.7rem 2rem;
+	background-color: rgba(255, 255, 255, 0.7);
+	box-shadow: 0 10px 20px -5px grey;
+	cursor: pointer;
+}
+
+form {
+	display: grid;
+	place-items: left;
+	background-image: linear-gradient(to right, rgba(105, 233, 207, 0.8), rgba(9, 249, 24 , 0.5));
+	font-size: medium;
+}
+
+form * {
+	width: 100%;
+	text-align: center;
+}
+
+label {
+	font-size: large;
+	color: darkslategrey;
+	font-weight: bold;
+}
+
+input, select, option {
+	font-size: medium;
+	text-align: center;
+	background-color: #dddddd;
+	color: darkslategrey;
+}
+
+input[type="submit"] {
+	width: 30%;
+}
+
+input[type="submit"]:hover {
+	box-shadow: 0 10px 20px -5px grey;
+	cursor: pointer;
+}
+
+

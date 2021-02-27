@@ -1,0 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+
+html, body {
+	background-image: url('https://www.michiganradio.org/sites/michigan/files/201510/3382865257_7dedef23b0_o.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+	background-attachment: fixed;
+	text-shadow: 0 3px 7px #999999;
+	display: flex;
+	flex-direction: column;
+}
+
+.red-font {
+	font-family: cursive;
+	color: red;
+}
+
+.card {
+	background-color: rgba(225, 233, 232, 0.9);
+	padding: 1.4rem;
+	border-radius: 40px;
+	box-shadow: 0px 20px 30px #888888;
+}
+
+h2 {
+	font-family: 'Reggae One', cursive;
+	color: #800080;
+}
+
+button, a {
+	width: 50%;
+}
+
+a:hover {
+	box-shadow: 0 10px 20px -5px grey;
+	cursor: pointer;
+}
+
+header {
+	background-image: linear-gradient(to right, rgba(25, 39, 232, 0.9), rgba(230, 39, 102, 0.8));
+	text-shadow: 0 5px 10px #000000;
+	box-shadow: 0 15px 30px #888888;
+	border-bottom-left-radius: 50px;
+	border-bottom-right-radius: 50px;
+	padding: 1.5rem;
+	font-family: cursive;
+	font-weight: bold;
+	color: white;
+	display: grid;
+}
+
+form {
+	display: grid;
+	background-color: rgba(234, 165, 239, 0.6);
+	font-size: medium;
+}
+
+label {
+	font-size: large;
+	color: darkslategrey;
+	font-weight: bold;
+}
+
+input {
+	font-size: medium;
+	color: darkslategrey;
+	border-radius: 1px;
+	width: 100%;
+}
+
