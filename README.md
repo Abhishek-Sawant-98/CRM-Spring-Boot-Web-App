@@ -1,5 +1,5 @@
 # CRM_WEB_APP
-This is a basic Customer Relationship Management Web Application which allows the user to login, logout, register, save and retrieve data regarding his/her leads, contacts, accounts, opportunities, cases, tasks and events.
+This is a basic Customer Relationship Management Web Application which allows the user to register, login, logout, save and retrieve data regarding his/her leads, contacts, accounts, opportunities, cases, tasks and events.
 
 The contributors to this project are:-
 - [Abhishek Sawant](https://github.com/abhisheksawant807)
