@@ -784,33 +784,33 @@
 					<div class="modal-body">
 						<form:form action="/CRM/dashboard/new-task" method="post" modelAttribute="task" class="row g-3">
 							<h3>Task information</h3>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<label class="form-label" for="assignedTo"><spring:message code="label.assignedTo" /></label> 
 								<form:input path="assignedTo" class="form-control" id="assignedTo" />
 								<form:errors path="assignedTo" cssClass="red-font" />
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<label class="form-label" for="relatedTo"><spring:message code="label.relatedTo" /></label> 
 								<form:input path="relatedTo" class="form-control" id="relatedTo" />
 								<form:errors path="relatedTo" cssClass="red-font" />
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<label class="form-label" for="name"><spring:message code="label.taskName" /></label> 
 								<form:input path="name" class="form-control" id="name" />
 								<form:errors path="name" cssClass="red-font" />
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<label class="form-label" for="subject"><spring:message code="label.subject" /></label> 
 								<form:input path="subject" class="form-control" id="subject" />
 								<form:errors path="subject" cssClass="red-font" />
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<label class="form-label" for="comments"><spring:message code="label.comments" /></label> 
 								<form:input path="comments" class="form-control" id="comments" />
 								<form:errors path="comments" cssClass="red-font" />
 							</div>
 							
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<label class="form-label" for="dueDate"><spring:message code="label.dueDate" /></label> 
 								<form:input type="date" path="dueDate" class="form-control" id="dueDate" />
 								<form:errors path="dueDate" cssClass="red-font" />

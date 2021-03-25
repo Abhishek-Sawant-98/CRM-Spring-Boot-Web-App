@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 
 import com.crm.annotation.AlnumPattern;
+import com.crm.annotation.PhonePattern;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,13 +24,13 @@ public class Event {
 	private String endTime;
 	private Boolean isAlreadyRegistered;
 
-	@NotBlank(message = "{error.contactName.blank}")
-	@AlnumPattern(message = "{error.contactName.invalidFormat}")
-	private String assignedTo; 
+	@NotBlank(message = "{error.mobile.blank}")
+	@PhonePattern
+	private String assignedTo; // contact mobile
 
 	@NotBlank(message = "{error.account.name.blank}")
 	@AlnumPattern(message = "{error.account.name.invalidFormat}")
-	private String relatedTo; 
+	private String relatedTo; // account name
 
 	@NotBlank(message = "{error.event.name.blank}")
 	@AlnumPattern(message = "{error.event.name.invalidFormat}")

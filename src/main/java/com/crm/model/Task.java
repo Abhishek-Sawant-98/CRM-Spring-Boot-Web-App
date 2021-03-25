@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 
 import com.crm.annotation.AlnumPattern;
+import com.crm.annotation.PhonePattern;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,8 +26,8 @@ public class Task {
 	private String reminderTime;
 	private Boolean isAlreadyRegistered;
 
-	@NotBlank(message = "{error.phone.blank}")
-	@AlnumPattern(message = "{error.phone.invalidFormat}")
+	@NotBlank(message = "{error.mobile.blank}")
+	@PhonePattern
 	private String assignedTo; // contact mobile
 
 	@NotBlank(message = "{error.account.name.blank}")
