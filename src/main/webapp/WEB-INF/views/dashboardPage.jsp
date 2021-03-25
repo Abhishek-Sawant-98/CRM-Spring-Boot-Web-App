@@ -419,11 +419,11 @@
 								<label class="form-label" for="contactOwner"><spring:message code="label.contactOwner" /></label> 
 								<input type="text" value='${userObj.userId} - ${userObj.firstName} ${userObj.lastName}'  class="form-control" readonly="readonly" id="contactOwner"  />
 							</div>
-
+							
 							<div class="col-md-4">
-								<label class="form-label" for="phone"><spring:message code="label.phone" /></label> 
-								<form:input path="phone" class="form-control" id="phone" />
-								<form:errors path="phone" cssClass="red-font" />
+								<label class="form-label" for="mobile"><spring:message code="label.mobile" /></label> 
+								<form:input path="mobile" class="form-control" id="mobile" />
+								<form:errors path="mobile" cssClass="red-font" />
 							</div>
 
 							<div class="col-md-4">
@@ -431,22 +431,16 @@
 								<form:select path="salutation" class="form-control" id="salutation" items="${nameSalutationOptions}"/>
 							</div>
 
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<label class="form-label" for="firstName"><spring:message code="label.firstName" /></label> 
 								<form:input path="firstName" class="form-control" id="firstName" />
 								<form:errors path="firstName" cssClass="red-font" />
 							</div>
 
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<label class="form-label" for="lastName"><spring:message code="label.lastName" /></label> 
 								<form:input path="lastName" class="form-control" id="lastName" />
 								<form:errors path="lastName" cssClass="red-font" />
-							</div>
-
-							<div class="col-md-4">
-								<label class="form-label" for="mobile"><spring:message code="label.mobile" /></label> 
-								<form:input path="mobile" class="form-control" id="mobile" />
-								<form:errors path="mobile" cssClass="red-font" />
 							</div>
 
 							<div class="col-md-4">
@@ -700,9 +694,9 @@
 							</div>
 							
 							<div class="col-md-6">
-								<label class="form-label" for="contactName"><spring:message code="label.contactName" /></label> 
-								<form:input path="contactName" class="form-control" id="contactName" />
-								<form:errors path="contactName" cssClass="red-font" />
+								<label class="form-label" for="contactMobile"><spring:message code="label.contactMobile" /></label> 
+								<form:input path="contactMobile" class="form-control" id="contactMobile" />
+								<form:errors path="contactMobile" cssClass="red-font" />
 							</div>
 							
 							<div class="col-md-6">

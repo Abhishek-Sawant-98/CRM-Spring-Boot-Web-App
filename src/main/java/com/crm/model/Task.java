@@ -25,13 +25,13 @@ public class Task {
 	private String reminderTime;
 	private Boolean isAlreadyRegistered;
 
-	@NotBlank(message = "{error.contactName.blank}")
-	@AlnumPattern(message = "{error.contactName.invalidFormat}")
-	private String assignedTo; 
+	@NotBlank(message = "{error.phone.blank}")
+	@AlnumPattern(message = "{error.phone.invalidFormat}")
+	private String assignedTo; // contact mobile
 
 	@NotBlank(message = "{error.account.name.blank}")
 	@AlnumPattern(message = "{error.account.name.invalidFormat}")
-	private String relatedTo; 
+	private String relatedTo; // account name
 
 	@NotBlank(message = "{error.task.name.blank}")
 	@AlnumPattern(message = "{error.task.name.invalidFormat}")

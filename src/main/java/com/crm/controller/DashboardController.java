@@ -135,7 +135,7 @@ public class DashboardController {
 
 		// Custom validation of contact through 'ContactValidator.java'
 		contactService.validate(contact, results);
-		
+
 		if (results.hasErrors()) {
 			session.setAttribute("errorMessage", invalidContactMsg);
 			return "dashboardPage";

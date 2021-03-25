@@ -31,10 +31,6 @@ public class Contact {
 	private String mailingAddress;
 	private String otherAddress;
 
-	@NotBlank(message = "{error.phone.blank}")
-	@PhonePattern
-	private String phone;
-
 	@NotBlank(message = "{error.firstName.blank}")
 	@AlnumPattern(message = "{error.firstName.invalidFormat}")
 	private String firstName;
