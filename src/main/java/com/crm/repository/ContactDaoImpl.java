@@ -40,7 +40,7 @@ public class ContactDaoImpl implements ContactDao {
 
 		// If the contact isn't registered, insert the contact details in database and
 		// return true, else return false
-		if (!isContactRegistered(contact)) {
+		if (!isContactRegistered(contact.getMobile(), contact.getContactOwner())) {
 
 			// GeneratedKeyHolder is used to capture the specified auto-generated primary
 			// key from MySQL upon successful insertion into the specified table
@@ -91,11 +91,11 @@ public class ContactDaoImpl implements ContactDao {
 	}
 
 	@Override
-	public boolean isContactRegistered(Contact contact) {
+	public boolean isContactRegistered(String contactMobile, String contactOwner) {
 		String contactOccurrenceQuery = ContactConstants.CONTACT_OCCURRENCES;
 
 		return jdbcTemplate.queryForObject(contactOccurrenceQuery,
-				new Object[] { contact.getContactOwner(), contact.getMobile() }, Integer.class) == 1;
+				new Object[] { contactOwner, contactMobile }, Integer.class) == 1;
 	}
 
 	@Override
@@ -126,3 +126,5 @@ public class ContactDaoImpl implements ContactDao {
 	}
 
 }
+
+

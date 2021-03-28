@@ -34,4 +34,10 @@ public class ContactServiceImpl implements ContactService {
 	public void validate(Contact contact, BindingResult results) {
 		new ContactValidator().validate(contact, results);
 	}
+
+	@Override
+	public boolean isContactRegistered(String contactMobile, User user) {
+		return contactDaoImpl.isContactRegistered(contactMobile, user.getUserId());
+	}
+	
 }

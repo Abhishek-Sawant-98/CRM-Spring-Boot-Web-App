@@ -87,7 +87,7 @@ public class DashboardController {
 		// logout
 		session.removeAttribute("user");
 		session.removeAttribute("userObj");
-		session.invalidate(); // Invalidates this session then unbinds any objects bound to it.
+		session.invalidate(); // Invalidates this session and then unbinds any objects bound to it.
 
 		return "logoutPage";
 	}
@@ -133,6 +133,8 @@ public class DashboardController {
 			HttpSession session, @Value("${error.alert.contact.invalid}") String invalidContactMsg,
 			@Value("${error.alert.contact.alreadyExists}") String contactAlreadyExistsMsg) {
 
+		User userSessionObj = (User) session.getAttribute("userObj");
+
 		// Custom validation of contact through 'ContactValidator.java'
 		contactService.validate(contact, results);
 
@@ -141,7 +143,14 @@ public class DashboardController {
 			return "dashboardPage";
 		}
 
-		if (!contactService.addContact(contact, (User) session.getAttribute("userObj"))) {
+		// Checking if account exists in DB or not
+		if (!accountService.isAccountRegistered(contact.getAccountName(), userSessionObj)) {
+			results.rejectValue("accountName", "error.account.notExists");
+			session.setAttribute("errorMessage", invalidContactMsg);
+			return "dashboardPage";
+		}
+
+		if (!contactService.addContact(contact, userSessionObj)) {
 			results.rejectValue("isAlreadyRegistered", "error.contact.cantRegisterAgain");
 			session.setAttribute("errorMessage", contactAlreadyExistsMsg);
 			return "dashboardPage";
@@ -177,6 +186,8 @@ public class DashboardController {
 			@Value("${error.alert.opportunity.invalid}") String invalidOpportunityMsg,
 			@Value("${error.alert.opportunity.alreadyExists}") String opportunityAlreadyExistsMsg) {
 
+		User userSessionObj = (User) session.getAttribute("userObj");
+
 		// Custom validation of opportunity through 'OpportunityValidator.java'
 		opportunityService.validate(opportunity, results);
 
@@ -185,7 +196,14 @@ public class DashboardController {
 			return "dashboardPage";
 		}
 
-		if (!opportunityService.addOpportunity(opportunity, (User) session.getAttribute("userObj"))) {
+		// Checking if account exists in DB or not
+		if (!accountService.isAccountRegistered(opportunity.getAccountName(), userSessionObj)) {
+			results.rejectValue("accountName", "error.account.notExists");
+			session.setAttribute("errorMessage", invalidOpportunityMsg);
+			return "dashboardPage";
+		}
+
+		if (!opportunityService.addOpportunity(opportunity, userSessionObj)) {
 			results.rejectValue("isAlreadyRegistered", "error.opportunity.cantRegisterAgain");
 			session.setAttribute("errorMessage", opportunityAlreadyExistsMsg);
 			return "dashboardPage";
@@ -200,12 +218,34 @@ public class DashboardController {
 			HttpSession session, @Value("${error.alert.case.invalid}") String invalidCaseMsg,
 			@Value("${error.alert.case.alreadyExists}") String caseAlreadyExistsMsg) {
 
+		User userSessionObj = (User) session.getAttribute("userObj");
+
 		if (results.hasErrors()) {
 			session.setAttribute("errorMessage", invalidCaseMsg);
 			return "dashboardPage";
 		}
 
-		if (!caseService.addCase(caseObj, (User) session.getAttribute("userObj"))) {
+		boolean notExistsFlag = false;
+
+		// Checking if account exists in DB or not
+		if (!accountService.isAccountRegistered(caseObj.getAccountName(), userSessionObj)) {
+			results.rejectValue("accountName", "error.account.notExists");
+			notExistsFlag = true;
+		}
+
+		// Checking if contact exists in DB or not
+		if (!contactService.isContactRegistered(caseObj.getContactMobile(), userSessionObj)) {
+			results.rejectValue("contactMobile", "error.contact.notExists");
+			notExistsFlag = true;
+		}
+
+		// If either or both account and contact do not exists in DB, display alert
+		if (notExistsFlag) {
+			session.setAttribute("errorMessage", invalidCaseMsg);
+			return "dashboardPage";
+		}
+
+		if (!caseService.addCase(caseObj, userSessionObj)) {
 			results.rejectValue("isAlreadyRegistered", "error.case.cantRegisterAgain");
 			session.setAttribute("errorMessage", caseAlreadyExistsMsg);
 			return "dashboardPage";
@@ -219,6 +259,8 @@ public class DashboardController {
 	private String addNewTask(@Valid @ModelAttribute("task") Task task, BindingResult results, HttpSession session,
 			@Value("${error.alert.task.invalid}") String invalidTaskMsg,
 			@Value("${error.alert.task.alreadyExists}") String taskAlreadyExistsMsg) {
+		
+		User userSessionObj = (User) session.getAttribute("userObj");
 
 		// Custom validation of task through 'TaskValidator.java'
 		taskService.validate(task, results);
@@ -227,8 +269,28 @@ public class DashboardController {
 			session.setAttribute("errorMessage", invalidTaskMsg);
 			return "dashboardPage";
 		}
+		
+		boolean notExistsFlag = false;
 
-		if (!taskService.addTask(task, (User) session.getAttribute("userObj"))) {
+		// Checking if account exists in DB or not
+		if (!accountService.isAccountRegistered(task.getRelatedTo(), userSessionObj)) {
+			results.rejectValue("relatedTo", "error.account.notExists");
+			notExistsFlag = true;
+		}
+
+		// Checking if contact exists in DB or not
+		if (!contactService.isContactRegistered(task.getAssignedTo(), userSessionObj)) {
+			results.rejectValue("assignedTo", "error.contact.notExists");
+			notExistsFlag = true;
+		}
+
+		// If either or both account and contact do not exists in DB, display alert
+		if (notExistsFlag) {
+			session.setAttribute("errorMessage", invalidTaskMsg);
+			return "dashboardPage";
+		}
+
+		if (!taskService.addTask(task, userSessionObj)) {
 			results.rejectValue("isAlreadyRegistered", "error.task.cantRegisterAgain");
 			session.setAttribute("errorMessage", taskAlreadyExistsMsg);
 			return "dashboardPage";

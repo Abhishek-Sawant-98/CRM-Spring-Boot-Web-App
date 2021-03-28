@@ -19,6 +19,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" />
 </head>
 <body>
+	<c:if test="${not empty errorMessage}">
+    	<script>
+	        alert("${errorMessage}");
+	        <% 
+	        	session.removeAttribute("errorMessage");
+	        %>
+   		</script>
+	</c:if>
 
 	<header>
 		<h1>CALENDAR PAGE</h1>
@@ -111,6 +119,7 @@
 						
 						<div class="col-md-12 center">
 							<input type="submit" class="btn btn-primary" value="Save"/>
+							<form:errors path="isAlreadyRegistered" cssClass="red-font" />
 						</div>
 						
 					</form:form>

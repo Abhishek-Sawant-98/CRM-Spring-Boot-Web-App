@@ -764,6 +764,7 @@
 							
 							<div class="col-md-12 center">
 								<input type="submit" class="btn btn-primary" value="Save"/>
+								<form:errors path="isAlreadyRegistered" cssClass="red-font" />
 							</div>
 							
 						</form:form>
@@ -849,6 +850,7 @@
 							
 							<div class="col-md-12 center">
 								<input type="submit" class="btn btn-primary" value="Save"/>
+								<form:errors path="isAlreadyRegistered" cssClass="red-font" />
 							</div>
 							
 						</form:form>

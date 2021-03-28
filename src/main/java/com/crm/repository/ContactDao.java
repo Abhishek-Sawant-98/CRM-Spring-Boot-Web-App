@@ -9,7 +9,7 @@ public interface ContactDao {
 
 	public boolean addContact(Contact contact, User user);
 
-	public boolean isContactRegistered(Contact contact);
+	public boolean isContactRegistered(String contactMobile, String contactOwner);
 	
 	public List<Contact> getContactsByUserId(String userId);
 	

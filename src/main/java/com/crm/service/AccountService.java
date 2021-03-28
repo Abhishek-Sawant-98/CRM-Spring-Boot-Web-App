@@ -12,5 +12,5 @@ public interface AccountService {
 	public boolean isAccountRegistered(String accountName, User user);
 	
 	public List<Account> getAccountsByUserId(User user);
-
+	
 }

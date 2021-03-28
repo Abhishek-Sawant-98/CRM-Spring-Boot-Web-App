@@ -15,7 +15,7 @@ public class TaskConstants {
 			+ "(SELECT idContact FROM contact WHERE contact_owner = ?);";
 
 	// Finding the task occurrences
-	public static final String TASK_OCCURRENCES = "SELECT COUNT(*) FROM `task` WHERE `name` = ? AND `subject` = ? AND "
-			+ "`idContact` IN (SELECT `idContact` FROM `contact` WHERE `contact_owner` = ?) AND "
-			+ "`idAccount` IN (SELECT `idAccount` FROM `account` WHERE `account_owner` = ?);";
+	public static final String TASK_OCCURRENCES = "SELECT COUNT(*) FROM `task` WHERE `name` = ? AND `subject` = ? "
+			+ "AND `idContact` IN (SELECT `idContact` FROM `contact` WHERE `contact_owner` = ?) "
+			+ "AND `idAccount` IN (SELECT `idAccount` FROM `account` WHERE `account_owner` = ?);";
 }

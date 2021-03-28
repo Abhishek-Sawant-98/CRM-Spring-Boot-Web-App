@@ -14,5 +14,7 @@ public interface ContactService {
 	public void validate(Contact contact, BindingResult results);
 
 	public List<Contact> getContactsByUserId(User user);
-
+	
+	public boolean isContactRegistered(String contactMobile, User user);
+	
 }
