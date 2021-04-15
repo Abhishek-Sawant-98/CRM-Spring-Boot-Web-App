@@ -29,7 +29,7 @@ This is a basic `Customer Relationship Management` Web Application which allows 
 
 
 
-## How to use
+## Steps to Run
 
 - Step 1 :- Download or clone this repo.
 - Step 2 :- Import this project in `eclipse 2020`.
