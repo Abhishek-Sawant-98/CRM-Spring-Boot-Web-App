@@ -45,4 +45,4 @@ This is a basic `Customer Relationship Management` Web Application which allows 
 > **Note**
 > <br> *username*: `user001`
 > <br> *password*: `Atul@xyz1`
-> <br>You can sign up as new user
+> <br>You can also sign up or register as a new user.
