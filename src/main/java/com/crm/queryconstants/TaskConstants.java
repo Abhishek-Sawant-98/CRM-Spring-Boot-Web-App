@@ -8,7 +8,7 @@ public class TaskConstants {
 			+ "values(?,?,?,?,?,?,?,?,?,?);";
 
 	// Fetching tasks based on user_id
-	public static final String FETCH_TASKS = "SELECT CONCAT(`first_name`, ' ', `last_name`) as AssignedTo, "
+	public static final String FETCH_TASKS = "SELECT DISTINCT CONCAT(`first_name`, ' ', `last_name`) as AssignedTo, "
 			+ "a.account_name as RelatedTo, `name`, `subject`, `comments`, `due_date`, `reminder_date`, "
 			+ "`reminder_time`, `status`, `priority` FROM name n, contact c, account a, task t "
 			+ "WHERE t.idContact=n.idContact AND t.idAccount=a.idAccount AND t.idContact in "

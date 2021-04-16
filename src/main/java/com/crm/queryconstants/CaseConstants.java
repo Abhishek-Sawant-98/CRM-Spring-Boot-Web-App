@@ -8,7 +8,7 @@ public class CaseConstants {
 			+ "`description`, `internal_comments`) values(?,?,?,?,?,?,?,?,?,?,?,?);";
 
 	// To fetch cases based on user_id
-	public static final String FETCH_CASES = "SELECT CONCAT(`first_name`, ' ', `last_name`) as Contact_Name, "
+	public static final String FETCH_CASES = "SELECT DISTINCT CONCAT(`first_name`, ' ', `last_name`) as Contact_Name, "
 			+ "c.mobile, a.account_name as Account_Name, cs.email_id, cs.subject, cs.status, cs.type, cs.case_origin, "
 			+ "cs.case_reason, cs.case_priority, cs.description FROM `name` n, `contact` c, `account` a, `case` cs "
 			+ "WHERE cs.idContact = n.idContact AND cs.idAccount = a.idAccount AND cs.idContact IN "

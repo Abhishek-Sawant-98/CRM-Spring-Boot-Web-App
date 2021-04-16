@@ -7,7 +7,7 @@ public class EventConstants {
 			+ "`date`, `start`, `end`, `location`, `description`) " + "values(?,?,?,?,?,?,?,?,?);";
 
 	// To fetch events based on user_id
-	public static final String FETCH_EVENTS = "SELECT CONCAT(`first_name`, ' ', `last_name`) as AssignedTo, "
+	public static final String FETCH_EVENTS = "SELECT DISTINCT CONCAT(`first_name`, ' ', `last_name`) as AssignedTo, "
 			+ "a.account_name as RelatedTo, e.subject, e.name, e.date, e.start, e.end, "
 			+ "e.location, e.description FROM name n, contact c, account a, event e "
 			+ "WHERE e.idContact=n.idContact AND e.idAccount=a.idAccount AND e.idContact in "

@@ -16,7 +16,7 @@ public class LeadConstants {
 			+ "`zip_postal`, `country`, `idLead`) values(?,?,?,?,?,?)";
 
 	// To fetch leads based on user_id
-	public static final String FETCH_LEADS = "SELECT CONCAT(n.first_name, ' ', n.last_name) AS Name, "
+	public static final String FETCH_LEADS = "SELECT DISTINCT CONCAT(n.first_name, ' ', n.last_name) AS Name, "
 			+ "CONCAT(`street`,', ', `city`,', ', `state_province`,', ', `zip_postal`,', ', ad.country,', ') AS Address, "
 			+ "l.lead_status, l.phone, l.company, l.email_id, l.website, l.lead_source, l.employee_count, l.annual_revenue, l.industry "
 			+ "FROM name n, address ad, `lead` l WHERE l.idLead = n.idLead AND l.idLead = ad.idLead AND l.idLead IN "

@@ -15,7 +15,7 @@ public class AccountConstants {
 			+ "`zip_postal`, `country`, `idAccount`, `type`) values(?,?,?,?,?,?,'Shipping')";
 
 	// Fetching accounts for a particular user_id
-	public static final String FETCH_ACCOUNTS = "SELECT a.account_name AS Account_Name, a.phone, a.fax, a.website, a.type, "
+	public static final String FETCH_ACCOUNTS = "SELECT DISTINCT a.account_name AS Account_Name, a.phone, a.fax, a.website, a.type, "
 			+ "CONCAT(`street`,', ', `city`,', ', `state_province`,', ', `zip_postal`,', ', ad.country) AS Billing_Address, "
 			+ "CONCAT(`street`,', ', `city`,', ', `state_province`,', ', `zip_postal`,', ', ad.country) AS Shipping_Address, "
 			+ "a.employee_count, a.annual_revenue, a.industry FROM `account` a, `address` ad WHERE a.idAccount = ad.idAccount AND "

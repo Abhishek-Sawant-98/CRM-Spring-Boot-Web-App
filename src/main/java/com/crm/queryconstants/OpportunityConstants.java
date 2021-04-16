@@ -8,7 +8,7 @@ public class OpportunityConstants {
 			+ "values(?,?,?,?,?,?,?,?,?,?,?);";
 
 	// To fetch opportunities based on user_id
-	public static final String FETCH_OPPORTUNITIES = "SELECT o.opportunity_name, a.account_name AS RelatedTo, o.type, o.stage, "
+	public static final String FETCH_OPPORTUNITIES = "SELECT DISTINCT o.opportunity_name, a.account_name AS RelatedTo, o.type, o.stage, "
 			+ "o.probability, o.close_date, o.lead_source, o.amount, o.description, o.next_step "
 			+ "FROM `opportunity` o, `account` a WHERE o.idAccount = a.idAccount AND o.idAccount IN "
 			+ "(SELECT `idAccount` FROM `account` WHERE `account_owner` = ?);";

@@ -23,7 +23,7 @@ public class ContactConstants {
 			+ "(`street`, `city`, `state_province`, `zip_postal`, `country`, `idContact`, `type`) values(?,?,?,?,?,?,'Other');";
 
 	// Fetching contacts for a particular user_id
-	public static final String FETCH_CONTACTS = "SELECT CONCAT(n.first_name, ' ', n.last_name) AS Contact_Name, a.account_name, "
+	public static final String FETCH_CONTACTS = "SELECT DISTINCT CONCAT(n.first_name, ' ', n.last_name) AS Contact_Name, a.account_name, "
 			+ "c.mobile, c.email_id, c.birth_date, c.title, c.fax, c.department, c.lead_source, c.assistant_phone, "
 			+ "CONCAT(`street`,', ', `city`,', ', `state_province`,', ', `zip_postal`,', ', ad.country) AS Mailing_Address, "
 			+ "CONCAT(`street`,', ', `city`,', ', `state_province`,', ', `zip_postal`,', ', ad.country) AS Other_Address "
